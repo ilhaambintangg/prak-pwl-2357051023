@@ -8,13 +8,12 @@ use App\Http\Controllers\UserController;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Di sini kamu bisa mendaftarkan semua route untuk aplikasi.
+| Semua route aplikasi didefinisikan di sini.
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Arahkan root "/" langsung ke daftar user
+Route::get('/', [UserController::class, 'index'])->name('user.index');
 
 // Route untuk UserController
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
