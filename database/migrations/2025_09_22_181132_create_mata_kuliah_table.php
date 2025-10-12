@@ -12,16 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('mata_kuliah', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_mk');
-            $table->integer('sks');
-            $table->timestamps();
+            // UUID sebagai primary key
+            $table->uuid('id')->primary();
+
+            // Kolom mata kuliah
+            $table->string('nama_mk'); // nama mata kuliah
+            $table->integer('sks');    // jumlah SKS
+
+            $table->timestamps(); // created_at & updated_at
         });
     }
 
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
         Schema::dropIfExists('mata_kuliah');
     }
-
 };
