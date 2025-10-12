@@ -11,10 +11,10 @@ class MataKuliah extends Model
     use HasFactory;
 
     protected $table = 'mata_kuliah';
-    protected $guarded = [];
-
-    public $incrementing = false; 
-    protected $keyType = 'string'; 
+    protected $primaryKey = 'uuid'; 
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['uuid', 'nama_mk', 'sks']; 
 
     protected static function boot()
     {
@@ -27,7 +27,7 @@ class MataKuliah extends Model
         });
     }
 
-    public function getALLMK()
+    public function getAllMK()
     {
         return $this->all();
     }
